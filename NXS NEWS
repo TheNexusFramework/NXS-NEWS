@@ -1,0 +1,263 @@
+//@version=5
+indicator("NXS NEWS TEMPLATE", overlay=true, max_labels_count=500)
+
+toMillis(mins) => mins * 60 * 1000
+tf_ok = timeframe.isseconds or (timeframe.isminutes and timeframe.multiplier <= 15)
+
+//══════════════════════════════════════════════════════════════════════════════
+// NEXUS HUD SETTINGS
+//══════════════════════════════════════════════════════════════════════════════
+show_table = input.bool(true, "Show Calendar Table", group="NEXUS HUD")
+table_pos  = input.string(position.middle_right, "Table Position", options=[position.top_right, position.middle_right, position.bottom_right], group="NEXUS HUD")
+text_size  = input.string(size.small, "Text Size", options=[size.tiny, size.small, size.normal], group="NEXUS HUD")
+
+//══════════════════════════════════════════════════════════════════════════════
+// EVENT ALERTS & PLOTS (BLANK TEMPLATE)
+//══════════════════════════════════════════════════════════════════════════════
+
+// ───────── WEEK 1 ─────────
+event1_time = timestamp("America/New_York", 2026, 1, 1, 8, 30)
+event1_lbl  = "Event 1\\nIn 15 Minutes"
+var bool e1_d = false
+show_e1 = time >= event1_time - toMillis(15) and not e1_d and tf_ok
+if show_e1
+    e1_d := true
+plotshape(show_e1, location=location.abovebar, style=shape.square, size=size.normal, color=color.new(#bbd9fb, 50), text=event1_lbl, textcolor=#e8e4dc)
+
+event2_time = timestamp("America/New_York", 2026, 1, 1, 10, 00)
+event2_lbl  = "Event 2\\nIn 15 Minutes"
+var bool e2_d = false
+show_e2 = time >= event2_time - toMillis(15) and not e2_d and tf_ok
+if show_e2
+    e2_d := true
+plotshape(show_e2, location=location.abovebar, style=shape.square, size=size.normal, color=color.new(#bbd9fb, 50), text=event2_lbl, textcolor=#e8e4dc)
+
+// ───────── WEEK 2 ─────────
+event3_time = timestamp("America/New_York", 2026, 1, 8, 10, 00)
+event3_lbl  = "Event 3\\nIn 15 Minutes"
+var bool e3_d = false
+show_e3 = time >= event3_time - toMillis(15) and not e3_d and tf_ok
+if show_e3
+    e3_d := true
+plotshape(show_e3, location=location.abovebar, style=shape.square, size=size.normal, color=color.new(#bbd9fb, 50), text=event3_lbl, textcolor=#e8e4dc)
+
+event4_time = timestamp("America/New_York", 2026, 1, 10, 14, 00)
+event4_lbl  = "Event 4\\nIn 15 Minutes"
+var bool e4_d = false
+show_e4 = time >= event4_time - toMillis(15) and not e4_d and tf_ok
+if show_e4
+    e4_d := true
+plotshape(show_e4, location=location.abovebar, style=shape.square, size=size.normal, color=color.new(#bbd9fb, 50), text=event4_lbl, textcolor=#e8e4dc)
+
+event5_time = timestamp("America/New_York", 2026, 1, 11, 8, 30)
+event5_lbl  = "Event 5\\nIn 15 Minutes"
+var bool e5_d = false
+show_e5 = time >= event5_time - toMillis(15) and not e5_d and tf_ok
+if show_e5
+    e5_d := true
+plotshape(show_e5, location=location.abovebar, style=shape.square, size=size.normal, color=color.new(#bbd9fb, 50), text=event5_lbl, textcolor=#e8e4dc)
+
+event6_time = timestamp("America/New_York", 2026, 1, 12, 10, 00)
+event6_lbl  = "Event 6\\nIn 15 Minutes"
+var bool e6_d = false
+show_e6 = time >= event6_time - toMillis(15) and not e6_d and tf_ok
+if show_e6
+    e6_d := true
+plotshape(show_e6, location=location.abovebar, style=shape.square, size=size.normal, color=color.new(#bbd9fb, 50), text=event6_lbl, textcolor=#e8e4dc)
+
+// ───────── WEEK 3 ─────────
+event7_time = timestamp("America/New_York", 2026, 1, 15, 8, 30)
+event7_lbl  = "🔴 RED FOLDER 1 🔴\\nIn 15 Minutes"
+var bool e7_d = false
+show_e7 = time >= event7_time - toMillis(15) and not e7_d and tf_ok
+if show_e7
+    e7_d := true
+plotshape(show_e7, location=location.abovebar, style=shape.square, size=size.normal, color=color.new(#ff0000, 25), text=event7_lbl, textcolor=color.white)
+
+event8_time = timestamp("America/New_York", 2026, 1, 16, 8, 30)
+event8_lbl  = "Event 8\\nIn 15 Minutes"
+var bool e8_d = false
+show_e8 = time >= event8_time - toMillis(15) and not e8_d and tf_ok
+if show_e8
+    e8_d := true
+plotshape(show_e8, location=location.abovebar, style=shape.square, size=size.normal, color=color.new(#bbd9fb, 50), text=event8_lbl, textcolor=#e8e4dc)
+
+// ───────── WEEK 4 ─────────
+event9_time = timestamp("America/New_York", 2026, 1, 22, 8, 30)
+event9_lbl  = "Event 9\\nIn 15 Minutes"
+var bool e9_d = false
+show_e9 = time >= event9_time - toMillis(15) and not e9_d and tf_ok
+if show_e9
+    e9_d := true
+plotshape(show_e9, location=location.abovebar, style=shape.square, size=size.normal, color=color.new(#bbd9fb, 50), text=event9_lbl, textcolor=#e8e4dc)
+
+event10_time = timestamp("America/New_York", 2026, 1, 22, 10, 00)
+event10_lbl  = "Event 10\\nIn 15 Minutes"
+var bool e10_d = false
+show_e10 = time >= event10_time - toMillis(15) and not e10_d and tf_ok
+if show_e10
+    e10_d := true
+plotshape(show_e10, location=location.abovebar, style=shape.square, size=size.normal, color=color.new(#bbd9fb, 50), text=event10_lbl, textcolor=#e8e4dc)
+
+event11_time = timestamp("America/New_York", 2026, 1, 23, 9, 45)
+event11_lbl  = "Event 11\\nIn 15 Minutes"
+var bool e11_d = false
+show_e11 = time >= event11_time - toMillis(15) and not e11_d and tf_ok
+if show_e11
+    e11_d := true
+plotshape(show_e11, location=location.abovebar, style=shape.square, size=size.normal, color=color.new(#bbd9fb, 50), text=event11_lbl, textcolor=#e8e4dc)
+
+event12_time = timestamp("America/New_York", 2026, 1, 23, 10, 00)
+event12_lbl  = "Event 12\\nIn 15 Minutes"
+var bool e12_d = false
+show_e12 = time >= event12_time - toMillis(15) and not e12_d and tf_ok
+if show_e12
+    e12_d := true
+plotshape(show_e12, location=location.abovebar, style=shape.square, size=size.normal, color=color.new(#bbd9fb, 50), text=event12_lbl, textcolor=#e8e4dc)
+
+// ───────── WEEK 5 ─────────
+event13_time = timestamp("America/New_York", 2026, 1, 27, 8, 30)
+event13_lbl  = "Event 13\\nIn 15 Minutes"
+var bool e13_d = false
+show_e13 = time >= event13_time - toMillis(15) and not e13_d and tf_ok
+if show_e13
+    e13_d := true
+plotshape(show_e13, location=location.abovebar, style=shape.square, size=size.normal, color=color.new(#bbd9fb, 50), text=event13_lbl, textcolor=#e8e4dc)
+
+event14_time = timestamp("America/New_York", 2026, 1, 27, 10, 00)
+event14_lbl  = "Event 14\\nIn 15 Minutes"
+var bool e14_d = false
+show_e14 = time >= event14_time - toMillis(15) and not e14_d and tf_ok
+if show_e14
+    e14_d := true
+plotshape(show_e14, location=location.abovebar, style=shape.square, size=size.normal, color=color.new(#bbd9fb, 50), text=event14_lbl, textcolor=#e8e4dc)
+
+event15_time = timestamp("America/New_York", 2026, 1, 28, 14, 00)
+event15_lbl  = "🔴 RED FOLDER 2 🔴\\nIn 15 Minutes"
+var bool e15_d = false
+show_e15 = time >= event15_time - toMillis(15) and not e15_d and tf_ok
+if show_e15
+    e15_d := true
+plotshape(show_e15, location=location.abovebar, style=shape.square, size=size.normal, color=color.new(#ff0000, 25), text=event15_lbl, textcolor=color.white)
+
+event16_time = timestamp("America/New_York", 2026, 1, 29, 8, 30)
+event16_lbl  = "🔴 RED FOLDER 3 🔴\\nIn 15 Minutes"
+var bool e16_d = false
+show_e16 = time >= event16_time - toMillis(15) and not e16_d and tf_ok
+if show_e16
+    e16_d := true
+plotshape(show_e16, location=location.abovebar, style=shape.square, size=size.normal, color=color.new(#ff0000, 25), text=event16_lbl, textcolor=color.white)
+
+event17_time = timestamp("America/New_York", 2026, 1, 30, 8, 30)
+event17_lbl  = "Event 17\\nIn 15 Minutes"
+var bool e17_d = false
+show_e17 = time >= event17_time - toMillis(15) and not e17_d and tf_ok
+if show_e17
+    e17_d := true
+plotshape(show_e17, location=location.abovebar, style=shape.square, size=size.normal, color=color.new(#bbd9fb, 50), text=event17_lbl, textcolor=#e8e4dc)
+
+event18_time = timestamp("America/New_York", 2026, 1, 30, 9, 45)
+event18_lbl  = "Event 18\\nIn 15 Minutes"
+var bool e18_d = false
+show_e18 = time >= event18_time - toMillis(15) and not e18_d and tf_ok
+if show_e18
+    e18_d := true
+plotshape(show_e18, location=location.abovebar, style=shape.square, size=size.normal, color=color.new(#bbd9fb, 50), text=event18_lbl, textcolor=#e8e4dc)
+
+//══════════════════════════════════════════════════════════════════════════════
+// NEXUS HUD: CALENDAR TABLE
+//══════════════════════════════════════════════════════════════════════════════
+var table hud = table.new(table_pos, 3, 40, bgcolor=color.new(color.black, 40), border_color=color.new(color.gray, 60), border_width=1, frame_color=color.gray, frame_width=1)
+
+drawCell(r, c, txt, is_head, is_red) =>
+    t_col = is_red ? color.new(#ff5252, 0) : (is_head ? color.gray : #e8e4dc)
+    bg_col = is_head ? color.new(color.black, 20) : color.new(color.black, 100)
+    table.cell(hud, c, r, txt, text_color=t_col, text_size=text_size, bgcolor=bg_col, text_halign=text.align_left)
+
+if barstate.islast and show_table
+    // HEADERS
+    drawCell(0, 0, "DATE", true, false)
+    drawCell(0, 1, "TIME (ET)", true, false)
+    drawCell(0, 2, "EVENT", true, false)
+
+    // WEEK 1
+    drawCell(1, 0, "DAY 1", false, false)
+    drawCell(1, 1, "08:30", false, false)
+    drawCell(1, 2, "Event 1", false, false)
+    drawCell(2, 0, "", false, false)
+    drawCell(2, 1, "10:00", false, false)
+    drawCell(2, 2, "Event 2", false, false)
+
+    // WEEK 2
+    drawCell(3, 0, "DAY 8", false, false)
+    drawCell(3, 1, "10:00", false, false)
+    drawCell(3, 2, "Event 3", false, false)
+
+    drawCell(4, 0, "DAY 10", false, false)
+    drawCell(4, 1, "14:00", false, false)
+    drawCell(4, 2, "Event 4", false, false)
+
+    drawCell(5, 0, "DAY 11", false, false)
+    drawCell(5, 1, "08:30", false, false)
+    drawCell(5, 2, "Event 5", false, false)
+
+    drawCell(6, 0, "DAY 12", false, false)
+    drawCell(6, 1, "10:00", false, false)
+    drawCell(6, 2, "Event 6", false, false)
+
+    // WEEK 3
+    drawCell(7, 0, "DAY 15", false, false)
+    drawCell(7, 1, "08:30", false, true)
+    drawCell(7, 2, "🔴 RED FOLDER 1", false, true)
+
+    drawCell(8, 0, "DAY 16", false, false)
+    drawCell(8, 1, "08:30", false, false)
+    drawCell(8, 2, "Event 8", false, false)
+
+    // WEEK 4
+    drawCell(9, 0, "DAY 22", false, false)
+    drawCell(9, 1, "08:30", false, false)
+    drawCell(9, 2, "Event 9", false, false)
+    drawCell(10, 0, "", false, false)
+    drawCell(10, 1, "10:00", false, false)
+    drawCell(10, 2, "Event 10", false, false)
+
+    drawCell(11, 0, "DAY 23", false, false)
+    drawCell(11, 1, "09:45", false, false)
+    drawCell(11, 2, "Event 11", false, false)
+    drawCell(12, 0, "", false, false)
+    drawCell(12, 1, "10:00", false, false)
+    drawCell(12, 2, "Event 12", false, false)
+
+    // WEEK 5
+    drawCell(13, 0, "DAY 27", false, false)
+    drawCell(13, 1, "08:30", false, false)
+    drawCell(13, 2, "Event 13", false, false)
+    drawCell(14, 0, "", false, false)
+    drawCell(14, 1, "10:00", false, false)
+    drawCell(14, 2, "Event 14", false, false)
+
+    drawCell(15, 0, "DAY 28", false, false)
+    drawCell(15, 1, "14:00", false, true)
+    drawCell(15, 2, "🔴 RED FOLDER 2", false, true)
+
+    drawCell(16, 0, "DAY 29", false, false)
+    drawCell(16, 1, "08:30", false, true)
+    drawCell(16, 2, "🔴 RED FOLDER 3", false, true)
+
+    drawCell(17, 0, "DAY 30", false, false)
+    drawCell(17, 1, "08:30", false, false)
+    drawCell(17, 2, "Event 17", false, false)
+    drawCell(18, 0, "", false, false)
+    drawCell(18, 1, "09:45", false, false)
+    drawCell(18, 2, "Event 18", false, false)
+
+else if barstate.islast and not show_table
+    table.clear(hud, 0, 0, 2, 40)"""
+
+    with open("NXS_News_Blank_Template.pine", "w") as f:
+        f.write(template)
+    
+    print("NXS_News_Blank_Template.pine created successfully.")
+
+create_news_template()
